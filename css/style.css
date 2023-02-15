@@ -309,7 +309,7 @@ nav ul li a::before {
   }
 }
 @media screen and (max-width: 992px) {
-  .nav-line {
+  .nav-line-holder {
     display: none;
   }
 }
