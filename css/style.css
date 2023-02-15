@@ -32,7 +32,7 @@ html {
   margin-right: auto;
 }
 
-/* @media (min-width: 768px) {
+@media (min-width: 768px) {
   .container {
     width: 750px;
   }
@@ -46,8 +46,12 @@ html {
   .container {
     width: 1170px;
   }
-} */
+}
 
+::selection {
+  background-color: var(--light-blue);
+  color: var(--dark-blue);
+}
 /* components */
 
 body {
@@ -90,6 +94,7 @@ h5 {
   letter-spacing: 4.75px;
   text-transform: uppercase;
   color: var(--light-blue);
+  font-weight: 400;
 }
 img {
   max-width: 100%;
@@ -139,10 +144,10 @@ nav .logo_holder {
 
 nav ul {
   background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(16.6px);
-  -webkit-backdrop-filter: blur(16.6px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   position: fixed;
-  right: -100%;
+  right: -820px;
   top: 0;
   min-height: 100vh;
   padding: 118px 100px 0 32px;
@@ -253,7 +258,94 @@ nav ul li a::before {
   content: "0" counter(link);
   margin-right: 5px;
 }
+/* main landing */
+main {
+  display: flex;
+  flex-direction: column;
+}
+section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 80px;
+}
+#home article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+#home .button {
+  text-transform: uppercase;
+  background-color: var(--white);
+  color: #000;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  font-family: "Bellefair", serif;
+  transition: 300ms ease-out;
+  -webkit-transition: 300ms ease-out;
+  -moz-transition: 300ms ease-out;
+  -ms-transition: 300ms ease-out;
+  -o-transition: 300ms ease-out;
+  position: relative;
+  z-index: 2;
+  letter-spacing: 1px;
+}
+#home .button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  background-color: var(--white-light);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  z-index: -1;
+  transition: 0.5s ease;
+  -webkit-transition: 0.5s ease;
+  -moz-transition: 0.5s ease;
+  -ms-transition: 0.5s ease;
+  -o-transition: 0.5s ease;
+  width: 0;
+  height: 0;
+}
+
+#home .button:hover::before {
+  width: calc(100% + 50px);
+  height: calc(100% + 50px);
+}
+
+.content {
+  gap: 20px;
+}
+.heading {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 20px;
+}
+article p {
+  line-height: 1.7;
+  font-weight: 300;
+}
 /* pages backgrounds */
 
 #home {
@@ -387,6 +479,20 @@ nav ul li a::before {
     padding: 0 48px 0 32px;
     margin-right: -39px;
   }
+  #home .button {
+    width: 242px;
+    height: 242px;
+  }
+  #home .button:hover::before {
+    width: calc(100% + 100px);
+    height: calc(100% + 100px);
+  }
+  .content {
+    width: 450px;
+  }
+  section {
+    gap: 150px;
+  }
 }
 @media screen and (min-width: 992px) {
   p {
@@ -417,26 +523,36 @@ nav ul li a::before {
   }
   nav ul {
     padding: 0 170px 0 120px;
-    position: unset;
+    position: relative;
     z-index: 2;
     margin-right: -55px;
   }
-  .nav-line-holder {
-    position: fixed;
-    width: 88%;
-    height: 96px;
-    top: calc(44px);
-    right: 0;
-    overflow: hidden;
-  }
-  .nav-line-holder::after {
+
+  /* NAB BAR LINE => NEEDS FIX */
+  nav ul::before {
     content: "";
     position: absolute;
     top: 50%;
     right: 740px;
-    z-index: 100001;
+    z-index: -1;
     background-color: var(--white);
     height: 1px;
+    width: 200px;
+  }
+  #home .button {
+    width: 274px;
+    height: 274px;
+  }
+  #home .button:hover::before {
+    width: calc(100% + 100px);
+    height: calc(100% + 100px);
+  }
+  section {
+    flex-direction: row;
+    justify-content: space-between;
     width: 100%;
+  }
+  .content {
+    text-align: left;
   }
 }
