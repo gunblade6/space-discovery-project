@@ -131,11 +131,14 @@ p {
 
 header {
   padding: 24px;
+  display: flex;
+  z-index: 99999;
 }
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 nav .logo_holder {
@@ -294,13 +297,14 @@ section {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   font-family: "Bellefair", serif;
-  transition: 300ms ease-out;
-  -webkit-transition: 300ms ease-out;
-  -moz-transition: 300ms ease-out;
-  -ms-transition: 300ms ease-out;
-  -o-transition: 300ms ease-out;
+  transition: 300ms ease;
+  -webkit-transition: 300ms ease;
+  -moz-transition: 300ms ease;
+  -ms-transition: 300ms ease;
+  -o-transition: 300ms ease;
   position: relative;
   z-index: 2;
+  cursor: pointer;
   letter-spacing: 1px;
 }
 #home .button::before {
@@ -320,13 +324,25 @@ section {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   z-index: -1;
-  transition: 0.5s ease;
-  -webkit-transition: 0.5s ease;
-  -moz-transition: 0.5s ease;
-  -ms-transition: 0.5s ease;
-  -o-transition: 0.5s ease;
-  width: 0;
-  height: 0;
+  transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  width: 100%;
+  height: 100%;
+}
+#home .button.clicked {
+  color: white;
+}
+#home .button.clicked::before {
+  width: 1200%;
+  height: 1200%;
+  background-color: var(--white);
+}
+#home .button.clicked:hover::before {
+  width: 1200%;
+  height: 1200%;
 }
 
 #home .button:hover::before {
@@ -346,6 +362,28 @@ article p {
   line-height: 1.7;
   font-weight: 300;
 }
+
+/* destination */
+
+main::after {
+  content: "";
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--dark-blue);
+  z-index: 100;
+  opacity: 1;
+  animation: remove-overlay 1s ease forwards 1;
+  -webkit-animation: remove-overlay 1s ease forwards 1;
+}
+#destination::after {
+  background-color: var(--white);
+  animation: remove-overlay 1s ease forwards 1;
+  -webkit-animation: remove-overlay 1s ease forwards 1;
+}
+
 /* pages backgrounds */
 
 #home {
@@ -536,7 +574,7 @@ article p {
     right: 740px;
     z-index: -1;
     background-color: var(--white);
-    height: 1px;
+    /* height: 1px; */
     width: 200px;
   }
   #home .button {
@@ -554,5 +592,34 @@ article p {
   }
   .content {
     text-align: left;
+  }
+  nav .logo_holder {
+    flex-shrink: 0;
+  }
+  .nav-line {
+    top: 50%;
+    left: 100%;
+    z-index: 1;
+    background-color: var(--white);
+    height: 1px;
+    width: 100%;
+    transform: translateX(50px);
+    -webkit-transform: translateX(50px);
+    -moz-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -o-transform: translateX(50px);
+  }
+}
+
+/* animations */
+
+@keyframes remove-overlay {
+  from {
+    z-index: 10005;
+    opacity: 1;
+  }
+  to {
+    z-index: -1;
+    opacity: 0;
   }
 }

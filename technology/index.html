@@ -7,7 +7,7 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./assets/favicon-32x32.png"
+      href="/assets/favicon-32x32.png"
     />
     <title>Frontend Mentor | Space tourism website</title>
     <!-- css -->
@@ -29,16 +29,22 @@
           <a href="/" class="logo_holder">
             <img src="/assets/shared/logo.svg" alt="Website logo" />
           </a>
+          <div class="nav-line"></div>
           <ul>
-            <li><a href="/">home</a></li>
-            <li><a href="/destination/">destination</a></li>
-            <li><a href="/crew/">crew</a></li>
-            <li><a href="/technology/" class="active">technology</a></li>
+            <li><a class="nav-links" href="/">home</a></li>
+            <li><a class="nav-links" href="/destination/">destination</a></li>
+            <li><a class="nav-links" href="/crew/">crew</a></li>
+            <li>
+              <a class="nav-links active" href="/technology/" class="active"
+                >technology</a
+              >
+            </li>
           </ul>
         </nav>
       </header>
       <section></section>
     </main>
-    <script src="/js/main.js"></script>
+    <script src="/js/main.js" type="module"></script>
+    <script src="/js/technology.js" type="module"></script>
   </body>
 </html>

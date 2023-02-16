@@ -2,6 +2,7 @@ const nav = document.querySelector(`nav`);
 const xMark = document.getElementById(`xMark`);
 const xMarkSpans = document.querySelectorAll(`#xMark span`);
 const navUl = document.querySelector(`nav ul`);
+const homeButton = document.querySelector(`#home .button`);
 
 // toggle nav when use clicks on burger menu elements
 xMark.addEventListener(`click`, () => {
@@ -13,6 +14,7 @@ document.addEventListener(`click`, (e) => {
   if (
     e.target !== navUl &&
     e.target !== xMark &&
+    !e.target.classList.contains(`nav-links`) &&
     nav.classList.contains(`list-open`)
   ) {
     nav.classList.remove(`list-open`);
@@ -26,4 +28,15 @@ function navChecker() {
   } else {
     nav.classList.add(`list-open`);
   }
+}
+
+// fill the screen when the landing button is clicked
+
+if (homeButton) {
+  homeButton.addEventListener(`click`, () => {
+    homeButton.classList.add(`clicked`);
+    setTimeout(() => {
+      location.href = `/destination`;
+    }, 400);
+  });
 }
