@@ -52,6 +52,13 @@ html {
   background-color: var(--light-blue);
   color: var(--dark-blue);
 }
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
 /* components */
 
 body {
