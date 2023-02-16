@@ -60,6 +60,7 @@ body {
   color: var(--white);
   font-size: 15px;
   counter-reset: link;
+  background-color: var(--dark-blue);
 }
 main {
   min-height: 100vh;
@@ -67,6 +68,17 @@ main {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+main::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: var(--dark-blue);
+  animation: remove-overlay 0.5s ease forwards;
+  -webkit-animation: remove-overlay 0.5s ease forwards;
 }
 h1,
 h2,
@@ -364,25 +376,6 @@ article p {
 }
 
 /* destination */
-
-main::after {
-  content: "";
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background-color: var(--dark-blue);
-  z-index: 100;
-  opacity: 1;
-  animation: remove-overlay 1s ease forwards 1;
-  -webkit-animation: remove-overlay 1s ease forwards 1;
-}
-#destination::after {
-  background-color: var(--white);
-  animation: remove-overlay 1s ease forwards 1;
-  -webkit-animation: remove-overlay 1s ease forwards 1;
-}
 
 /* pages backgrounds */
 

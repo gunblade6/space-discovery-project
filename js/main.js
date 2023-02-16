@@ -1,3 +1,4 @@
+const header = document.querySelector(`header`);
 const nav = document.querySelector(`nav`);
 const xMark = document.getElementById(`xMark`);
 const xMarkSpans = document.querySelectorAll(`#xMark span`);
@@ -34,7 +35,9 @@ function navChecker() {
 
 if (homeButton) {
   homeButton.addEventListener(`click`, () => {
+    header.style.zIndex = `1`;
     homeButton.classList.add(`clicked`);
+
     setTimeout(() => {
       location.href = `/destination`;
     }, 400);
