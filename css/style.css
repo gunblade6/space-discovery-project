@@ -494,6 +494,13 @@ nav ul {
 #destination .heading {
   gap: 0;
 }
+.changing {
+  transition: 300ms ease;
+  -webkit-transition: 300ms ease;
+  -moz-transition: 300ms ease;
+  -ms-transition: 300ms ease;
+  -o-transition: 300ms ease;
+}
 
 /* pages backgrounds */
 
