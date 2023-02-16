@@ -50,34 +50,38 @@
             <span class="count">01</span>pick your destination
           </p>
           <div class="img_holder">
-            <img src="/assets/destination/image-moon.png" alt="planet image" />
+            <img
+              id="planetImg"
+              src="/assets/destination/image-moon.png"
+              alt="planet image"
+            />
           </div>
         </article>
         <article>
           <ul>
-            <li><a class="active">moon</a></li>
-            <li><a>mars</a></li>
-            <li><a>europa</a></li>
-            <li><a>titan</a></li>
+            <li><a class="active" data-index="0">moon</a></li>
+            <li><a data-index="1">mars</a></li>
+            <li><a data-index="2">europa</a></li>
+            <li><a data-index="3">titan</a></li>
           </ul>
           <div class="content">
             <div class="heading">
-              <p>
+              <p id="planetDescription">
                 See our planet as you’ve never seen it before. A perfect
                 relaxing trip away to help regain perspective and come back
                 refreshed. While you’re there, take in some history by visiting
                 the Luna 2 and Apollo 11 landing sites.
               </p>
-              <h2>moon</h2>
+              <h2 id="planetName">moon</h2>
             </div>
             <div class="info">
               <div class="distance">
                 <p class="subheading-2">avg. distance</p>
-                <p class="subheading-1">384,400 km</p>
+                <p class="subheading-1" id="distance">384,400 km</p>
               </div>
               <div class="time">
                 <p class="subheading-2">est. travel time</p>
-                <p class="subheading-1">3 days</p>
+                <p class="subheading-1" id="travelTime">3 days</p>
               </div>
             </div>
           </div>

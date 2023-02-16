@@ -43,3 +43,52 @@ if (homeButton) {
     }, 600);
   });
 }
+
+// DESTINATION
+
+const destinationLinks = document.querySelectorAll(
+  `#destination section ul li a`
+);
+const planetName = document.getElementById(`planetName`);
+const planetDescription = document.getElementById(`planetDescription`);
+const distance = document.getElementById(`distance`);
+const travelTime = document.getElementById(`travelTime`);
+const planetImg = document.getElementById(`planetImg`);
+let target;
+
+if (destinationLinks) {
+  destinationLinks.forEach((link) => {
+    // change active class on click
+    link.addEventListener(`click`, () => {
+      destinationLinks.forEach((link) => link.classList.remove(`active`));
+      link.classList.add(`active`);
+
+      // change page content
+      // get the index of the clicked link
+      target = link.dataset.index;
+
+      fetch("/data.json")
+        .then((res) => res.json())
+        .then((data) => data.destinations)
+        .then((data) => {
+          planetName.innerHTML = data[target].name;
+          return data;
+        })
+        .then((data) => {
+          planetDescription.innerHTML = data[target].description;
+          return data;
+        })
+        .then((data) => {
+          distance.innerHTML = data[target].distance;
+          return data;
+        })
+        .then((data) => {
+          travelTime.innerHTML = data[target].travel;
+          return data;
+        })
+        .then((data) => {
+          planetImg.src = data[target].images.png;
+        });
+    });
+  });
+}
