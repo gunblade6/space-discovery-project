@@ -274,11 +274,44 @@ nav ul li a {
   -moz-transition: 300ms ease;
   -ms-transition: 300ms ease;
   -o-transition: 300ms ease;
+  position: relative;
 }
 nav ul li a::before {
   counter-increment: link;
   content: "0" counter(link);
   margin-right: 5px;
+}
+nav ul li a:hover::after {
+  background-color: var(--white-light);
+  opacity: 1;
+}
+nav ul li a.active::after {
+  opacity: 1;
+}
+nav ul li a::after {
+  content: "";
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--white);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transition: 300ms ease;
+  -webkit-transition: 300ms ease;
+  -moz-transition: 300ms ease;
+  -ms-transition: 300ms ease;
+  -o-transition: 300ms ease;
 }
 /* main landing */
 main {
@@ -343,11 +376,11 @@ section {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   z-index: -1;
-  transition: 0.3s ease;
-  -webkit-transition: 0.3s ease;
-  -moz-transition: 0.3s ease;
-  -ms-transition: 0.3s ease;
-  -o-transition: 0.3s ease;
+  transition: 0.5s ease;
+  -webkit-transition: 0.5s ease;
+  -moz-transition: 0.5s ease;
+  -ms-transition: 0.5s ease;
+  -o-transition: 0.5s ease;
   width: 100%;
   height: 100%;
 }
@@ -492,14 +525,26 @@ article p {
     width: 100%;
     height: 3px;
     background-color: var(--white);
+    top: unset;
     bottom: 30px;
     opacity: 0;
+    right: unset;
     left: 0;
     transition: 300ms ease;
     -webkit-transition: 300ms ease;
     -moz-transition: 300ms ease;
     -ms-transition: 300ms ease;
     -o-transition: 300ms ease;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
   }
   nav #xMark {
     display: none;

@@ -40,6 +40,6 @@ if (homeButton) {
 
     setTimeout(() => {
       location.href = `/destination`;
-    }, 400);
+    }, 600);
   });
 }
