@@ -189,7 +189,7 @@ nav.list-open ul {
 /* NAV TOGGLER START*/
 /* NAV TOGGLER START*/
 nav #xMark {
-  position: fixed;
+  position: absolute;
   display: flex;
   flex-direction: column;
   gap: 6px;
