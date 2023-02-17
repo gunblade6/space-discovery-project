@@ -98,13 +98,13 @@ if (destinationLinks) {
           });
         setTimeout(() => {
           changingElements.forEach((el) => (el.style.opacity = `1`));
-        }, 100);
+        }, 200);
       }, 300);
     });
   });
 }
 
-window.addEventListener(`touchmove`, () => {
+window.addEventListener(`touchend`, () => {
   if (homeButton) {
     homeButton.classList.remove(`clicked`);
   }
