@@ -126,6 +126,11 @@ img {
   justify-content: center;
   letter-spacing: 2px;
 }
+.job_title {
+  font-size: 16px;
+  color: var(--white-light);
+  font-family: "Bellefair", serif;
+}
 p {
   font-size: 15px;
   color: var(--light-blue);
@@ -502,6 +507,71 @@ nav ul {
   -o-transition: 300ms ease;
 }
 
+/* CREW */
+#crew section {
+  justify-content: flex-start;
+  gap: 30px;
+}
+#crew article:first-child {
+  flex-grow: 1;
+}
+#crew .page_desc {
+  align-self: flex-start;
+  margin-bottom: 30px;
+  text-align: left;
+  width: 100%;
+}
+#crew .main_elements {
+  display: flex;
+  flex-direction: column-reverse;
+}
+#crew section ul {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+  margin: 30px 0 0 0;
+}
+#crew section ul li a.active {
+  background-color: var(--white);
+}
+#crew section ul li a {
+  width: 10px;
+  height: 10px;
+  background-color: var(--white-light);
+  display: inline-block;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: 200ms ease;
+  -webkit-transition: 200ms ease;
+  -moz-transition: 200ms ease;
+  -ms-transition: 200ms ease;
+  -o-transition: 200ms ease;
+  cursor: pointer;
+}
+#crew section ul li a:hover {
+  background-color: var(--white);
+}
+#crew section .img_holder {
+  width: 60%;
+  transform: translateY(2px);
+  -webkit-transform: translateY(2px);
+  -moz-transform: translateY(2px);
+  -ms-transform: translateY(2px);
+  -o-transform: translateY(2px);
+}
+#crew .content {
+  display: flex;
+  gap: 30px;
+  flex-direction: column-reverse;
+}
+
+#crew .img_article {
+  border-bottom: 1px solid var(--white-trans);
+}
 /* pages backgrounds */
 
 main {
@@ -591,7 +661,7 @@ main {
     font-size: 80px;
   }
   h3 {
-    font-size: 56px;
+    font-size: 40px;
   }
   h5,
   .page_desc {
@@ -688,6 +758,43 @@ main {
     flex-direction: row;
     justify-content: center;
     gap: 80px;
+  }
+  .job_title {
+    font-size: 24px;
+  }
+  /* CREW */
+  #crew section {
+    margin-top: 50px;
+    gap: 0;
+  }
+  #crew .main_elements {
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  #crew .img_article {
+    border: none;
+    align-self: flex-end;
+  }
+  #crew article:first-child {
+    flex-grow: 1;
+  }
+  #crew .page_desc {
+    align-self: flex-start;
+    width: unset;
+  }
+
+  #crew section ul {
+    margin: 30px 0 0 0;
+  }
+  #crew section ul li a {
+    width: 15px;
+    height: 15px;
+  }
+  #crew section .img_holder {
+    width: 70%;
+  }
+  #crew .content {
+    flex-direction: column;
   }
 }
 @media screen and (min-width: 992px) {
@@ -789,6 +896,9 @@ main {
   }
   #destination .info {
     justify-content: flex-start;
+  }
+  .job_title {
+    font-size: 32px;
   }
 }
 
