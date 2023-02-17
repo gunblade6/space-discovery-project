@@ -82,6 +82,9 @@ if (destinationLinks) {
             return data;
           })
           .then((data) => {
+            planetImg.src = data[target].images.webp;
+          })
+          .then((data) => {
             planetDescription.innerHTML = data[target].description;
             return data;
           })
@@ -92,14 +95,12 @@ if (destinationLinks) {
           .then((data) => {
             travelTime.innerHTML = data[target].travel;
             return data;
-          })
-          .then((data) => {
-            planetImg.src = data[target].images.webp;
           });
+
         setTimeout(() => {
           changingElements.forEach((el) => (el.style.opacity = `1`));
-        }, 200);
-      }, 300);
+        }, 350);
+      }, 350);
     });
   });
 }
