@@ -634,6 +634,9 @@ main {
   #destination section article:first-child {
     gap: 30px;
   }
+  #crew .content {
+    margin-bottom: 50px;
+  }
 }
 @media screen and (max-width: 992px) {
   .nav-line-holder {
