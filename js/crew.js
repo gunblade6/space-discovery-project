@@ -27,11 +27,11 @@ if (crewLinks) {
           .then((res) => res.json())
           .then((data) => data.crew)
           .then((data) => {
-            crewName.innerHTML = data[crewTarget].name;
+            crewImg.src = data[crewTarget].images.webp;
             return data;
           })
           .then((data) => {
-            crewImg.src = data[crewTarget].images.webp;
+            crewName.innerHTML = data[crewTarget].name;
             return data;
           })
           .then((data) => {
