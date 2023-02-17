@@ -813,6 +813,7 @@ main {
   }
   h3 {
     font-size: 56px;
+    width: max-content;
   }
   h5,
   .page_desc {
@@ -899,6 +900,42 @@ main {
   }
   .job_title {
     font-size: 32px;
+  }
+  /* CREW */
+  #crew .main_elements {
+    flex-direction: row;
+    gap: 280px;
+    position: relative;
+  }
+  #crew .page_desc {
+    justify-content: flex-start;
+    margin: 0;
+  }
+  #crew .content {
+    align-items: flex-start;
+  }
+  #crew section {
+    flex-direction: column;
+    margin-top: 0;
+    align-items: flex-start;
+  }
+  #crew .img_article {
+    bottom: 0;
+  }
+
+  #crew section .img_holder {
+    width: 100%;
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+  }
+  #crew article:first-child {
+    align-items: flex-start;
+  }
+  #crew #crewDescription {
+    max-width: 450px;
   }
 }
 
