@@ -195,7 +195,7 @@ nav #xMark {
   gap: 6px;
   top: 33px;
   right: 24px;
-  z-index: 1005;
+  z-index: 9999999999;
   cursor: pointer;
   width: 24px;
   height: 21px;
