@@ -44,9 +44,10 @@ if (homeButton) {
   });
 }
 
-window.addEventListener("pageshow", function (event) {
-  var historyTraversal =
-    event.persisted ||
+// refresh page when user clicks back button
+window.addEventListener("pageshow", (e) => {
+  let historyTraversal =
+    e.persisted ||
     (typeof window.performance != "undefined" &&
       window.performance.navigation.type === 2);
   if (historyTraversal) {
