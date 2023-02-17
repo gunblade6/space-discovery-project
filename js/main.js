@@ -43,7 +43,6 @@ if (homeButton) {
     }, 600);
   });
 }
-
 // refresh page when user clicks back button
 window.addEventListener("pageshow", (e) => {
   let historyTraversal =
