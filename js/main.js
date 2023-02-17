@@ -104,8 +104,9 @@ if (destinationLinks) {
   });
 }
 
-window.addEventListener(`touchend`, () => {
+window.addEventListener(`touchstart`, () => {
   if (homeButton) {
     homeButton.classList.remove(`clicked`);
+    homeButton.blur();
   }
 });
