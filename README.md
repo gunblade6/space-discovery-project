@@ -42,7 +42,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [solution](https://your-solution-url.com)
+- Solution URL: [frontendmentor.io](https://www.frontendmentor.io/solutions/space-tourism-website-607p7NR6VZ)
 - Live Site URL: [spacediscovery.netlify.app](https://spacediscovery.netlify.app)
 
 ## My process
