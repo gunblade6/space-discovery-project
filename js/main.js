@@ -96,10 +96,16 @@ if (destinationLinks) {
           .then((data) => {
             planetImg.src = data[target].images.webp;
           });
+        setTimeout(() => {
+          changingElements.forEach((el) => (el.style.opacity = `1`));
+        }, 100);
       }, 300);
-      setTimeout(() => {
-        changingElements.forEach((el) => (el.style.opacity = `1`));
-      }, 400);
     });
   });
 }
+
+window.addEventListener(`touchmove`, () => {
+  if (homeButton) {
+    homeButton.classList.remove(`clicked`);
+  }
+});
