@@ -1,11 +1,12 @@
 # Frontend Mentor - Space tourism website solution
 
-This is a solution to the [Space tourism website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the [Space tourism website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3)
 
 ## Table of contents
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
+  - [I added](#i-added)
   - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
@@ -15,8 +16,6 @@ This is a solution to the [Space tourism website challenge on Frontend Mentor](h
   - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -28,14 +27,23 @@ Users should be able to:
 - See hover states for all interactive elements on the page
 - View each page and be able to toggle between the tabs to see new information
 
+### I added
+
+- white overlay fills the screen when user click (explore)
+- floating animation to destination planets
+- dynamically changing page content (no multiple html pages)
+
 ### Screenshot
 
-![](./screenshot.jpg)
+![](/assets/shared/screenshot_1.png)
+![](/assets/shared/screenshot_2.png)
+![](/assets/shared/screenshot_3.png)
+![](/assets/shared/screenshot_4.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [solution](https://your-solution-url.com)
+- Live Site URL: [spacediscovery.netlify.app](https://spacediscovery.netlify.app)
 
 ## My process
 
@@ -44,63 +52,101 @@ Users should be able to:
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- Vanilla JavaScript
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+Although the project was really challenging but after I finished it I came out with a a lot
 
-To see how you can add code snippets, see below:
+- Page transitions
+- Dealing with json files
+- Changing page content dynamically using json
+- Be more comfortable with responsive design and mobile first workflow
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
+To see how I changed the content dynamically, see below:
 
-```css
-.proud-of-this-css {
-  color: papayawhip;
+```js
+// DESTINATION
+
+const destinationLinks = document.querySelectorAll(
+  `#destination section ul li a`
+);
+const planetName = document.getElementById(`planetName`);
+const planetDescription = document.getElementById(`planetDescription`);
+const distance = document.getElementById(`distance`);
+const travelTime = document.getElementById(`travelTime`);
+const planetImg = document.getElementById(`planetImg`);
+const changingElements = document.querySelectorAll(`.changing`);
+
+let DestTarget;
+
+if (destinationLinks) {
+  destinationLinks.forEach((link) => {
+    // change active class on click
+    link.addEventListener(`click`, () => {
+      destinationLinks.forEach((link) => link.classList.remove(`active`));
+      link.classList.add(`active`);
+
+      // hide all changing elements
+      changingElements.forEach((el) => (el.style.opacity = `0`));
+
+      // change page content
+      // get the index of the clicked link
+
+      setTimeout(() => {
+        DestTarget = link.dataset.index;
+
+        fetch("/data.json")
+          .then((res) => res.json())
+          .then((data) => data.destinations)
+          .then((data) => {
+            planetName.innerHTML = data[DestTarget].name;
+            return data;
+          })
+          .then((data) => {
+            planetImg.src = data[DestTarget].images.webp;
+            return data;
+          })
+          .then((data) => {
+            planetDescription.innerHTML = data[DestTarget].description;
+            return data;
+          })
+          .then((data) => {
+            distance.innerHTML = data[DestTarget].distance;
+            return data;
+          })
+          .then((data) => {
+            travelTime.innerHTML = data[DestTarget].travel;
+            return data;
+          });
+
+        setTimeout(() => {
+          changingElements.forEach((el) => (el.style.opacity = `1`));
+        }, 460);
+      }, 280);
+    });
+  });
 }
 ```
 
-```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+I barely used CSS grid in this project, even though I think it would make things more functional. looking forward to using it more in my future projects
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [JS onpageshow even MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/pageshow_event) - this documentary helped me in understanding how to reload the page when the user clicks back button (mobile)
+- [tap highlight color MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color) - This documentary helped me remove the blue highlight when the user click a link on input
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Website - [Mohamed](https://mohamed-dev.netlify.app)
+- Frontend Mentor - [@midoashraf010](https://www.frontendmentor.io/profile/midoashraf010)
+- LinkedIn - [Mohamed Ashraf](https://www.linkedin.com/in/mohamed-ashraf-142659246/)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+Once I saw the project for the first time I thought I wont be able to make it,
+but once you start it suddenly became easier and easier.
+so just take the first step!
